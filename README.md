@@ -81,7 +81,7 @@ public class SomePoolManager : MonoBehaviour
 <br />
 
 ## How to install?
-Download `FastPool.unitypackage` and using UnityPackageManager.
+Download `FastPool.unitypackage` and use UnityPackageManager.
 <br />
 <br />
 
