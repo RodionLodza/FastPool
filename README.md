@@ -14,7 +14,11 @@ This library will help you quickly and efficiently develop object pools in your 
 
 > After a ***series of tests*** of different data structures (Array, List, Queue, Stack, ConcurrentBag and FreeList), the most effective data structure at the core of this library was ***FreeList***. The time required for basic operations is shown below.
 
+![0](WikiImages/01.JPG)
+
 > Thus, FreeList is thousands of times ***more efficient*** than familiar data structures.
+
+<br />
 
 ## How to use this library?
 1. ***First***, your pool object must realise the `IPoolableObject` interface.
