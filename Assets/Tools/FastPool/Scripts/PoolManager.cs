@@ -1,40 +1,37 @@
 ﻿using System.Collections.Generic;
 using System;
 
-namespace Tools.FastPool
+namespace FastPool
 {
-    public class PoolManager<T> where T : IPoolableObject
+    public class PoolManager<T> where T : IPoolable
     {
         private Func<T> objectGenerator;
         private List<T> poolObjects;
         private int countObjects;
-        private T firstNoActiveObject;
+        private T firstInactiveObject;
 
         public PoolManager(int countObjects, Func<T> objectGenerator)
         {
             this.countObjects = countObjects;
             this.objectGenerator = objectGenerator;
-        }
 
-        public void Initialize()
-        {
             poolObjects = new List<T>(countObjects);
 
             for (int i = 0; i < countObjects; i++)
                 poolObjects.Add(objectGenerator.Invoke());
 
             for (int i = 0; i < countObjects - 1; i++)
-                poolObjects[i].nextNoActiveObject = poolObjects[i + 1];
+                poolObjects[i].NextInactiveObject = poolObjects[i + 1];
 
-            firstNoActiveObject = poolObjects[0];
+            firstInactiveObject = poolObjects[0];
         }
 
         public T Pop()
         {
-            if (firstNoActiveObject != null)
+            if (firstInactiveObject != null)
             {
-                T poolObject = (T)firstNoActiveObject;
-                firstNoActiveObject = (T)poolObject.nextNoActiveObject;
+                T poolObject = (T)firstInactiveObject;
+                firstInactiveObject = (T)poolObject.NextInactiveObject;
                 return poolObject;
             }
             else
@@ -49,8 +46,8 @@ namespace Tools.FastPool
         public void Push(T poolObject)
         {
             poolObject.ResetStateObject();
-            poolObject.nextNoActiveObject = firstNoActiveObject;
-            firstNoActiveObject = poolObject;
+            poolObject.NextInactiveObject = firstInactiveObject;
+            firstInactiveObject = poolObject;
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using Tools.FastPool;
-using UnityEngine;
+﻿using UnityEngine;
+using FastPool;
 
-public class SomePoolObject : MonoBehaviour, IPoolableObject
+public class SomePoolObject : MonoBehaviour, IPoolable
 {
-    public IPoolableObject nextNoActiveObject { get; set; }
+    public IPoolable NextInactiveObject { get; set; }
 
     public void ResetStateObject()
     {
