@@ -1,8 +1,0 @@
-{
-    "name": "com.lodza.fastpool",
-    "displayName": "Fast Pool",
-    "version": "1.0.0",
-    "unity": "2018.1",
-    "description": "This library will help you quickly and efficiently develop object pools in your projects. \n The library is written very simply and intuitively (implements the classic design pattern - the object pool). In addition, this library uses an efficient data structure FreeList.",
-    "keywords": ["pool", "optimization"]
-}
