@@ -14,22 +14,22 @@ This library will help you quickly and efficiently develop object pools in your 
 
 > After a ***series of tests*** of different data structures (Array, List, Queue, Stack, ConcurrentBag and FreeList), the most effective data structure at the core of this library was ***FreeList***. The time required for basic operations is shown below.
 
-![0](WikiImages/01.JPG)
+![0](WikiImages/1.JPG)
 
 > Thus, FreeList is thousands of times ***more efficient*** than familiar data structures.
 
 <br />
 
 ## How to use this library?
-1. ***First***, your pool object must realise the `IPoolableObject` interface.
+1. ***First***, your pool object must realise the `IPoolable` interface.
 
 ```c#
-using Tools.FastPool;
 using UnityEngine;
+using FastPool;
 
-public class SomePoolObject : MonoBehaviour, IPoolableObject
+public class SomePoolObject : MonoBehaviour, IPoolable
 {
-    public IPoolableObject nextNoActiveObject { get; set; }
+    public IPoolable NextInactiveObject { get; set; }
 
     public void ResetStateObject()
     {
@@ -40,8 +40,8 @@ public class SomePoolObject : MonoBehaviour, IPoolableObject
 2. ***Secondly***, you need to realise an object pool manager script (for example, EnemiesController, which will control the logic of enemies and have objects of enemies).
 
 ```c#
-using Tools.FastPool;
 using UnityEngine;
+using FastPool;
 
 public class SomePoolManager : MonoBehaviour
 {
@@ -58,7 +58,6 @@ public class SomePoolManager : MonoBehaviour
     private void Initialize()
     {
         poolManager = new PoolManager<SomePoolObject>(objectsCount, ObjectGenerator);
-        poolManager.Initialize();
     }
 
     private SomePoolObject ObjectGenerator()
@@ -81,7 +80,8 @@ public class SomePoolManager : MonoBehaviour
 <br />
 
 ## How to install?
-The Unity Package Manager (UPM) is a new method to manage external packages. It keeps package contents separate from your main project files.
+1. 'Download SimpleLocalization.unitypackage' and using UnityPackageManager.
+2. The Unity Package Manager (UPM) is a new method to manage external packages. It keeps package contents separate from your main project files.
 
 Modify your project's Packages/manifest.json file adding this line:
 ```"com.lodza.fastpool": "https://github.com/Oleg-Avdeev/Argument.git#package"```
