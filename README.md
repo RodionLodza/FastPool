@@ -80,11 +80,11 @@ public class SomePoolManager : MonoBehaviour
 <br />
 
 ## How to install?
-1. 'Download SimpleLocalization.unitypackage' and using UnityPackageManager.
+1. `Download SimpleLocalization.unitypackage` and using UnityPackageManager.
 2. The Unity Package Manager (UPM) is a new method to manage external packages. It keeps package contents separate from your main project files.
 
 Modify your project's Packages/manifest.json file adding this line:
-```"com.lodza.fastpool": "https://github.com/Oleg-Avdeev/Argument.git#package"```
+```"com.lodza.fastpool": "https://github.com/Oleg-Avdeev/FastPool.git#package"```
 
 To access classes inside of this package you will need to add a reference to com.lodza.fastpool.asmdef to your project's assembly definition file.
 
