@@ -1,9 +1,8 @@
-﻿namespace Tools.FastPool
+﻿namespace FastPool
 {
-    public interface IPoolableObject
+    public interface IPoolable
     {
-        IPoolableObject nextNoActiveObject { get; set; }
-
+        IPoolable NextInactiveObject { get; set; }
         void ResetStateObject();
     }
 }

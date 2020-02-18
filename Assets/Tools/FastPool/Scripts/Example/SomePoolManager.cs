@@ -1,4 +1,4 @@
-﻿using Tools.FastPool;
+﻿using FastPool;
 using UnityEngine;
 
 public class SomePoolManager : MonoBehaviour
@@ -16,7 +16,6 @@ public class SomePoolManager : MonoBehaviour
     private void Initialize()
     {
         poolManager = new PoolManager<SomePoolObject>(objectsCount, ObjectGenerator);
-        poolManager.Initialize();
     }
 
     private SomePoolObject ObjectGenerator()
