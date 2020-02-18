@@ -1,5 +1,5 @@
-﻿using FastPool;
-using UnityEngine;
+﻿using UnityEngine;
+using FastPool;
 
 public class SomePoolManager : MonoBehaviour
 {
